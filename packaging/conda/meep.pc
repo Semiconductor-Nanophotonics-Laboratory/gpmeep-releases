@@ -1,0 +1,10 @@
+prefix=${pcfiledir}/../..
+exec_prefix=${prefix}
+libdir=${exec_prefix}/lib
+includedir=${prefix}/include
+
+Name: MEEP
+Description: time-domain electromagnetic simulation
+Version: 1.35.0-beta
+Libs: -L${libdir} -lmeep
+Cflags: -I${includedir}

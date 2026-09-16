@@ -1,0 +1,32 @@
+channels:
+  - conda-forge
+dependencies:
+  # gpmeep v1 binary/runtime ABI. The release installer consumes the generated
+  # explicit linux-64 lock, never this floating specification, on Linux x86_64.
+  - python=3.11
+  - cuda-version=12.4
+  - cuda-cudart=12.4
+  - mpi=1.0=openmpi
+  - openmpi=5.0.10
+  - fftw=3.3.11=mpi_openmpi_*
+  - gsl=2.8
+  - hdf5=1.14.6=mpi_openmpi_*
+  - zlib
+  - libblas
+  - liblapack
+  - libopenblas
+  - libctl=4.7.1
+  - harminv=1.4.3
+  - mpb=1.12=nompi_*
+  - numpy<3
+  - scipy
+  - h5py=3.16=mpi_openmpi_*
+  - mpi4py=4.1
+  - autograd=1.9.1
+  - jax=0.10.2
+  - jaxlib=0.10.2=cpu_*
+  - matplotlib-base
+  - nlopt
+  - trimesh
+  - gdstk=1.0.1
+  - setuptools

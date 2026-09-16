@@ -1,0 +1,36 @@
+#ifndef MEEP_CUDA_DETAIL_COMPILED_ARCHITECTURES_HPP
+#define MEEP_CUDA_DETAIL_COMPILED_ARCHITECTURES_HPP
+
+#include <cstddef>
+
+namespace meep_cuda {
+namespace detail {
+
+// The leading zero keeps both arrays valid C++ even when the corresponding
+// architecture kind is absent. Real compute capabilities require an exact
+// cubin match; PTX can be JIT-compiled for the same or a newer capability.
+constexpr int compiled_real_architectures[] = {@MEEP_GPU_REAL_ARCHITECTURE_VALUES@};
+constexpr int compiled_virtual_architectures[] = {@MEEP_GPU_VIRTUAL_ARCHITECTURE_VALUES@};
+
+constexpr std::size_t compiled_real_architecture_count =
+    sizeof(compiled_real_architectures) / sizeof(compiled_real_architectures[0]);
+constexpr std::size_t compiled_virtual_architecture_count =
+    sizeof(compiled_virtual_architectures) / sizeof(compiled_virtual_architectures[0]);
+
+inline bool compute_capability_is_compiled(int major, int minor) noexcept {
+  if (major < 0 || minor < 0 || minor > 9) return false;
+  const int capability = major * 10 + minor;
+
+  for (std::size_t i = 1; i < compiled_real_architecture_count; ++i)
+    if (compiled_real_architectures[i] == capability) return true;
+
+  for (std::size_t i = 1; i < compiled_virtual_architecture_count; ++i)
+    if (compiled_virtual_architectures[i] <= capability) return true;
+
+  return false;
+}
+
+} // namespace detail
+} // namespace meep_cuda
+
+#endif

@@ -1,0 +1,11 @@
+channels:
+  - conda-forge
+dependencies:
+  # This environment only drives conda-build. The recipe creates separate
+  # build/host/test prefixes and pins their ABI-participating dependencies.
+  - python=3.11
+  - conda=26.3.2
+  - conda-build=26.7.1
+  - conda-package-handling
+  - patchelf
+  - git

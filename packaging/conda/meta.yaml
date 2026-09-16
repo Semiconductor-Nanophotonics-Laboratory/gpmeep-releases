@@ -1,0 +1,130 @@
+{% set distribution_version = "1.0.3" %}
+{% set build_number = 0 %}
+
+package:
+  name: gpmeep
+  version: {{ distribution_version }}
+
+source:
+  # The builder supplies an archive-derived tree for the exact clean commit.
+  # Pointing this recipe at the live checkout would also copy ignored build
+  # environments and local evidence into Conda's work directory.
+  path: "{{ environ.get('GPMEEP_SOURCE_TREE') }}"
+
+build:
+  number: {{ build_number }}
+  skip: true  # [not linux or not x86_64]
+  string: cuda124_mpi_openmpi_py{{ py }}_{{ build_number }}
+  # build.sh finalizes package-relative RPATHs before producing ELF-bound
+  # compatibility reports. Conda must not mutate those audited bytes later.
+  binary_relocation: false
+  script_env:
+    - GPMEEP_SOURCE_COMMIT
+    - GPMEEP_CUDA_ARCHS
+    - GPMEEP_SOURCE_TREE
+  skip_compile_pyc:
+    # build.sh installs deterministic, prefix-relative checked-hash bytecode.
+    - "lib/python3.11/site-packages/meep/*.py"
+    - "share/gpmeep/*.py"
+  run_exports:
+    - {{ pin_subpackage('gpmeep', max_pin='x.x') }}
+
+requirements:
+  build:
+    - c-compiler =1.7
+    - cxx-compiler =1.7
+    - fortran-compiler =1.7
+    - {{ stdlib('c') }}
+    - autoconf =2.72
+    - autoconf-archive
+    - automake =1.17
+    - libtool =2.5.4
+    - make
+    - pkg-config
+    - swig =4.4.1
+    - cuda-nvcc =12.4
+    - cuda-cuobjdump =12.4
+    - patchelf
+  host:
+    - python =3.11
+    - cuda-version =12.4
+    - cuda-cudart-dev =12.4
+    - mpi =1.0=openmpi
+    - openmpi =5.0.10
+    - mpi4py =4.1
+    - fftw =3.3.11=mpi_openmpi_*
+    - gsl =2.8
+    - hdf5 =1.14.6=mpi_openmpi_*
+    - zlib
+    - libblas
+    - liblapack
+    - libopenblas
+    - libgcc >=12
+    - libstdcxx >=12
+    - libgomp >=12
+    - libctl =4.7.1
+    - harminv =1.4.3
+    - mpb =1.12=nompi_*
+    - numpy <3
+  run:
+    - python =3.11
+    - cuda-version =12.4
+    - cuda-cudart =12.4
+    - mpi =1.0=openmpi
+    - openmpi =5.0.10
+    - mpi4py =4.1
+    - fftw =3.3.11=mpi_openmpi_*
+    - gsl =2.8
+    - hdf5 =1.14.6=mpi_openmpi_*
+    - h5py =3.16=mpi_openmpi_*
+    - zlib
+    - libblas
+    - liblapack
+    - libopenblas
+    - libgcc >=12
+    - libstdcxx >=12
+    - libgomp >=12
+    - libctl =4.7.1
+    - harminv =1.4.3
+    - mpb =1.12=nompi_*
+    - numpy <3
+    - scipy
+    - autograd =1.9.1
+    - jax =0.10.2
+    - jaxlib =0.10.2=cpu_*
+    - matplotlib-base
+    - nlopt
+    - trimesh
+    - gdstk =1.0.1
+    - setuptools
+  run_constrained:
+    - __cuda >=12.4
+    - pymeep <0a0
+
+test:
+  imports:
+    - meep
+    - meep.adjoint
+    - meep.mpb
+  commands:
+    - python -c "import meep as mp; assert mp.gpu.compiled; assert mp.with_mpi(); assert mp.is_single_precision()"
+    - gpmeep-verify-provenance --prefix "$PREFIX"
+    - gpmeep-self-check --help
+
+about:
+  home: https://github.com/iverydj/gpmeep
+  license: GPL-2.0-or-later
+  license_file: LICENSE
+  summary: CUDA-accelerated FP32 MPI Meep with Python and adjoint support
+  description: |
+    gpmeep is a CUDA-accelerated, MPI-enabled, single-precision distribution
+    of Meep. It preserves the standard `import meep as mp` Python API and adds
+    strict CPU/CUDA backend selection, multi-GPU execution, and provenance
+    qualification. It must be installed in a dedicated environment and is not
+    co-installable with pymeep.
+  doc_url: https://github.com/iverydj/gpmeep/tree/main/doc/docs
+  dev_url: https://github.com/iverydj/gpmeep
+
+extra:
+  recipe-maintainers:
+    - iverydj

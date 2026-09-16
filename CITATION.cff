@@ -1,0 +1,50 @@
+cff-version: 1.2.0
+message: >-
+  If you use gpmeep, please cite this gpmeep software release and the upstream
+  Meep paper listed in the references.
+title: "gpmeep: CUDA-accelerated, multi-GPU Meep distribution"
+type: software
+version: 1.0.3
+date-released: 2026-09-03
+authors:
+  - family-names: Yi
+    given-names: Dong-Joon
+    website: "https://iverydj.github.io/"
+abstract: >-
+  gpmeep extends the Meep finite-difference time-domain solver with a persistent
+  FP32 CUDA execution layer, MPI-based multi-GPU operation, device-resident
+  monitors and reductions, explicit backend control, and evidence-bound
+  correctness and release validation.
+repository-code: "https://github.com/Semiconductor-Nanophotonics-Laboratory/gpmeep-releases"
+url: "https://iverydj.github.io/"
+license: GPL-2.0-or-later
+keywords:
+  - FDTD
+  - GPU FDTD
+  - CUDA FDTD
+  - CUDA
+  - GPU
+  - Meep
+references:
+  - type: article
+    title: "MEEP: A flexible free-software package for electromagnetic simulations by the FDTD method"
+    authors:
+      - family-names: Oskooi
+        given-names: Ardavan F.
+      - family-names: Roundy
+        given-names: David
+      - family-names: Ibanescu
+        given-names: Mihai
+      - family-names: Bermel
+        given-names: Peter
+      - family-names: Joannopoulos
+        given-names: J. D.
+      - family-names: Johnson
+        given-names: Steven G.
+    journal: Computer Physics Communications
+    volume: 181
+    issue: 3
+    start: 687
+    end: 702
+    year: 2010
+    doi: 10.1016/j.cpc.2009.11.008

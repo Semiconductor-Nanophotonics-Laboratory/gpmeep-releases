@@ -1,0 +1,17 @@
+{
+  "schema_version": 1,
+  "distribution_version": "1.0.3",
+  "binary_source_commit": "b48c9b678f2316cefa95e48a661f7a877547a000",
+  "binary_source_tree": "1c85bcd9925dfd28ad8d763a1caeb6532de79752",
+  "package_filename": "gpmeep-1.0.3-cuda124_mpi_openmpi_py311_0.conda",
+  "package_sha256": "fd834ca51019ce2f18b26cb1f7252933205e008cdf1b2d9598b54e58ea37ebf3",
+  "publication_kind": "privacy-cleaned-source-snapshot",
+  "omitted_non_runtime_paths": [
+    "artifacts/",
+    "evidence-anchors/",
+    "RESUME_CHECKPOINT.md",
+    ".github/",
+    "monkeytype.sqlite3"
+  ],
+  "policy": "Numerical solver and package build source are preserved. Raw logs, private execution metadata, type-trace databases, and development history are not public. Public documentation and notebook output strings may differ from build-time documentation; notebook source cells are preserved. Actual UUID literals in non-runtime test fixtures are replaced with synthetic UUIDs."
+}

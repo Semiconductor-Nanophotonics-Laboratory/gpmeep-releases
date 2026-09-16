@@ -1,0 +1,45 @@
+channels:
+  - conda-forge
+dependencies:
+  # Meep CI currently exercises Python 3.11. This reference environment uses
+  # GCC 13; integrated CUDA builds use the CUDA environment's GCC 12 toolchain.
+  - python=3.11
+  - c-compiler=1.9
+  - cxx-compiler=1.9
+  - fortran-compiler=1.9
+
+  # Build system
+  - autoconf
+  - autoconf-archive
+  - automake
+  - libtool
+  - make
+  - pkg-config
+  - swig
+  - ccache
+  - cmake
+  - ninja
+
+  # Native Meep dependencies
+  - fftw
+  - gsl
+  - hdf5
+  - zlib
+  - libblas
+  - liblapack
+  - libctl=4.7.1
+  - harminv=1.4.3
+  - mpb=1.12
+
+  # Python interface and tests. JAX is intentionally deferred because the
+  # first CPU/GPU equivalence tests do not require the adjoint solver.
+  - numpy<3
+  - scipy
+  - h5py
+  - autograd
+  - matplotlib-base
+  - parameterized
+  - pytest
+  - nlopt
+  - trimesh
+  - gdstk=1.0.1

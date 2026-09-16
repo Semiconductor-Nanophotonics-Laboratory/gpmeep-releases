@@ -1,0 +1,354 @@
+{
+  "schema": "gpmeep-v1-feature-coverage-v1",
+  "description": "Self-contained, deduplicated release coverage contract for gpmeep v1. Scheme is intentionally excluded.",
+  "scheme_scope": "excluded_by_user_requirement",
+  "expected_feature_count": 42,
+  "maximum_route_count": 32,
+  "features": [
+    {"id": "solver.real_cartesian", "family": "solver_physics", "policy": "ordinary", "minimum_routes": 1, "required_evidence": ["observable_equivalence", "strict_cuda_no_fallback"]},
+    {"id": "solver.complex_bloch", "family": "solver_physics", "policy": "ordinary", "minimum_routes": 1, "required_evidence": ["observable_equivalence", "strict_cuda_no_fallback"]},
+    {"id": "solver.dimensions", "family": "solver_physics", "policy": "ordinary", "minimum_routes": 4, "required_evidence": ["observable_equivalence", "strict_cuda_no_fallback"]},
+    {"id": "solver.pml_conductivity", "family": "solver_physics", "policy": "ordinary", "minimum_routes": 2, "required_evidence": ["observable_equivalence", "strict_cuda_no_fallback"]},
+    {"id": "solver.absorber", "family": "solver_physics", "policy": "ordinary", "minimum_routes": 1, "required_evidence": ["observable_equivalence", "strict_cuda_no_fallback"]},
+    {"id": "solver.pec", "family": "solver_physics", "policy": "ordinary", "minimum_routes": 1, "required_evidence": ["analytic_or_embedded_oracle", "strict_cuda_no_fallback"]},
+    {"id": "solver.standard_sources", "family": "solver_physics", "policy": "ordinary", "minimum_routes": 2, "required_evidence": ["specialized_counter", "strict_cuda_no_fallback"]},
+    {"id": "solver.custom_sources", "family": "solver_physics", "policy": "ordinary", "minimum_routes": 1, "required_evidence": ["observable_equivalence", "strict_cuda_no_fallback"]},
+    {"id": "solver.stochastic_sources", "family": "solver_physics", "policy": "ordinary", "minimum_routes": 1, "required_evidence": ["analytic_or_embedded_oracle", "strict_cuda_no_fallback"]},
+    {"id": "solver.dispersion", "family": "solver_physics", "policy": "ordinary", "minimum_routes": 2, "required_evidence": ["specialized_counter", "strict_cuda_no_fallback"]},
+    {"id": "solver.kerr", "family": "solver_physics", "policy": "ordinary", "minimum_routes": 1, "required_evidence": ["analytic_or_embedded_oracle", "specialized_counter", "strict_cuda_no_fallback"]},
+    {"id": "solver.gain_multilevel", "family": "solver_physics", "policy": "ordinary", "minimum_routes": 1, "required_evidence": ["observable_equivalence", "specialized_counter", "strict_cuda_no_fallback"]},
+    {"id": "solver.anisotropy", "family": "solver_physics", "policy": "ordinary", "minimum_routes": 1, "required_evidence": ["analytic_or_embedded_oracle", "strict_cuda_no_fallback"]},
+    {"id": "solver.gyrotropy", "family": "solver_physics", "policy": "ordinary", "minimum_routes": 1, "required_evidence": ["observable_equivalence", "strict_cuda_no_fallback"]},
+    {"id": "solver.dynamic_material", "family": "solver_physics", "policy": "ordinary", "minimum_routes": 1, "required_evidence": ["observable_equivalence", "strict_cuda_no_fallback"]},
+    {"id": "solver.material_grid", "family": "solver_physics", "policy": "ordinary", "minimum_routes": 3, "required_evidence": ["directional_derivative", "observable_equivalence", "strict_cuda_no_fallback"]},
+    {"id": "solver.symmetry", "family": "solver_physics", "policy": "ordinary", "minimum_routes": 3, "required_evidence": ["observable_equivalence", "strict_cuda_no_fallback"]},
+    {"id": "solver.dynamic_stop_harminv", "family": "solver_physics", "policy": "ordinary", "minimum_routes": 1, "required_evidence": ["analytic_or_embedded_oracle", "strict_cuda_no_fallback"]},
+    {"id": "solver.cw", "family": "solver_physics", "policy": "ordinary", "minimum_routes": 1, "required_evidence": ["analytic_or_embedded_oracle", "strict_cuda_no_fallback"]},
+
+    {"id": "monitor.dft_accumulation", "family": "monitor_transform_adjoint", "policy": "ordinary", "minimum_routes": 3, "required_evidence": ["specialized_counter", "strict_cuda_no_fallback"]},
+    {"id": "monitor.dft_reduction", "family": "monitor_transform_adjoint", "policy": "ordinary", "minimum_routes": 2, "required_evidence": ["specialized_counter", "strict_cuda_no_fallback"]},
+    {"id": "monitor.dft_materialization", "family": "monitor_transform_adjoint", "policy": "ordinary", "minimum_routes": 1, "required_evidence": ["observable_equivalence", "strict_cuda_no_fallback"]},
+    {"id": "monitor.dft_checkpoint", "family": "monitor_transform_adjoint", "policy": "ordinary", "minimum_routes": 1, "required_evidence": ["analytic_or_embedded_oracle", "strict_cuda_no_fallback"]},
+    {"id": "monitor.ldos", "family": "monitor_transform_adjoint", "policy": "ordinary", "minimum_routes": 1, "required_evidence": ["observable_equivalence", "specialized_counter", "strict_cuda_no_fallback"]},
+    {"id": "monitor.eigenmode_overlap", "family": "monitor_transform_adjoint", "policy": "ordinary", "minimum_routes": 1, "required_evidence": ["analytic_or_embedded_oracle", "strict_cuda_no_fallback"]},
+    {"id": "monitor.n2f_2d", "family": "monitor_transform_adjoint", "policy": "ordinary", "minimum_routes": 1, "required_evidence": ["observable_equivalence", "specialized_counter", "strict_cuda_no_fallback"]},
+    {"id": "monitor.n2f_3d", "family": "monitor_transform_adjoint", "policy": "ordinary", "minimum_routes": 2, "required_evidence": ["analytic_or_embedded_oracle", "specialized_counter", "strict_cuda_no_fallback"]},
+    {"id": "monitor.n2f_cyl", "family": "monitor_transform_adjoint", "policy": "ordinary", "minimum_routes": 3, "required_evidence": ["observable_equivalence", "specialized_counter", "strict_cuda_no_fallback"]},
+    {"id": "monitor.cyl_to_cartesian", "family": "monitor_transform_adjoint", "policy": "ordinary", "minimum_routes": 2, "required_evidence": ["direct_gpu2_comparison", "observable_equivalence", "specialized_counter"]},
+    {"id": "monitor.n2f_adjoint", "family": "monitor_transform_adjoint", "policy": "ordinary", "minimum_routes": 2, "required_evidence": ["directional_derivative", "specialized_counter", "strict_cuda_no_fallback"]},
+    {"id": "monitor.adjoint_cartesian", "family": "monitor_transform_adjoint", "policy": "ordinary", "minimum_routes": 5, "required_evidence": ["directional_derivative", "observable_equivalence", "strict_cuda_no_fallback"]},
+    {"id": "monitor.adjoint_cyl", "family": "monitor_transform_adjoint", "policy": "ordinary", "minimum_routes": 1, "required_evidence": ["directional_derivative", "specialized_counter", "strict_cuda_no_fallback"]},
+
+    {"id": "distributed.device_ownership", "family": "distributed_policy", "policy": "ordinary", "minimum_routes": 2, "required_evidence": ["device_uuid_binding", "direct_gpu2_comparison"]},
+    {"id": "distributed.pinned_mpi", "family": "distributed_policy", "policy": "ordinary", "minimum_routes": 1, "required_evidence": ["pinned_transport_counters", "direct_gpu2_comparison"]},
+    {"id": "distributed.cuda_aware_mpi", "family": "distributed_policy", "policy": "capability_gated", "minimum_routes": 1, "required_evidence": ["capability_probe"]},
+    {"id": "distributed.multi_rank", "family": "distributed_policy", "policy": "ordinary", "minimum_routes": 2, "required_evidence": ["multi_rank_work", "strict_cuda_no_fallback"]},
+    {"id": "distributed.multi_gpu_correctness", "family": "distributed_policy", "policy": "ordinary", "minimum_routes": 4, "required_evidence": ["direct_gpu2_comparison", "observable_equivalence"]},
+    {"id": "distributed.strong_scaling", "family": "distributed_policy", "policy": "ordinary", "minimum_routes": 1, "required_evidence": ["performance_repeats"]},
+    {"id": "policy.auto_small", "family": "distributed_policy", "policy": "ordinary", "minimum_routes": 1, "required_evidence": ["auto_policy"]},
+    {"id": "policy.auto_production", "family": "distributed_policy", "policy": "ordinary", "minimum_routes": 1, "required_evidence": ["auto_policy", "strict_cuda_no_fallback"]},
+    {"id": "policy.long_horizon_small", "family": "distributed_policy", "policy": "policy_gap_allowed", "minimum_routes": 2, "required_evidence": ["auto_policy", "observable_equivalence"]},
+    {"id": "evidence.resume_durability", "family": "distributed_policy", "policy": "ordinary", "minimum_routes": 1, "required_evidence": ["resume_replay"]}
+  ],
+  "routes": [
+    {
+      "id": "case:straight-waveguide",
+      "tier": 1,
+      "kind": "runner_case",
+      "case_id": "python/examples/straight-waveguide.py",
+      "topologies": ["cpu", "gpu1"],
+      "evidence": ["analytic_or_embedded_oracle", "observable_equivalence", "strict_cuda_no_fallback"],
+      "features": ["solver.real_cartesian", "solver.dimensions", "solver.standard_sources", "monitor.dft_accumulation"]
+    },
+    {
+      "id": "case:antenna-radiation",
+      "tier": 1,
+      "kind": "runner_case",
+      "case_id": "python/examples/antenna-radiation.py",
+      "topologies": ["cpu", "gpu1"],
+      "evidence": ["analytic_or_embedded_oracle", "observable_equivalence", "specialized_counter", "strict_cuda_no_fallback"],
+      "features": ["solver.symmetry", "monitor.n2f_2d"]
+    },
+    {
+      "id": "case:cyl-on-axis",
+      "tier": 1,
+      "kind": "runner_case",
+      "case_id": "python/examples/dipole_in_vacuum_cyl_on_axis.py",
+      "topologies": ["cpu", "gpu1"],
+      "evidence": ["analytic_or_embedded_oracle", "observable_equivalence", "specialized_counter", "strict_cuda_no_fallback"],
+      "features": ["solver.dimensions", "monitor.n2f_cyl"]
+    },
+    {
+      "id": "case:near2far-3d-adjoint",
+      "tier": 1,
+      "kind": "mpi_case",
+      "case_id": "python/examples/adjoint_optimization/near2far_3d_validation.py",
+      "topologies": ["cpu", "gpu1", "gpu2"],
+      "evidence": ["direct_gpu2_comparison", "directional_derivative", "observable_equivalence", "specialized_counter", "strict_cuda_no_fallback"],
+      "features": ["solver.material_grid", "monitor.n2f_3d", "monitor.n2f_adjoint", "distributed.multi_gpu_correctness"]
+    },
+    {
+      "id": "case:edge-emitter-3d",
+      "tier": 1,
+      "kind": "mpi_case",
+      "case_id": "python/examples/edge_emitter_3D.py",
+      "topologies": ["cpu", "auto", "gpu1", "gpu2"],
+      "evidence": ["auto_policy", "device_uuid_binding", "direct_gpu2_comparison", "multi_rank_work", "observable_equivalence", "pinned_transport_counters", "specialized_counter", "strict_cuda_no_fallback"],
+      "features": ["solver.dimensions", "solver.symmetry", "monitor.ldos", "distributed.device_ownership", "distributed.multi_rank", "distributed.multi_gpu_correctness", "policy.auto_production"]
+    },
+    {
+      "id": "case:third-harmonic",
+      "tier": 1,
+      "kind": "runner_case",
+      "case_id": "python/examples/3rd-harm-1d.py",
+      "topologies": ["cpu", "gpu1"],
+      "evidence": ["analytic_or_embedded_oracle", "observable_equivalence", "specialized_counter", "strict_cuda_no_fallback"],
+      "features": ["solver.kerr", "monitor.dft_reduction"]
+    },
+    {
+      "id": "case:parallel-waveguide-force",
+      "tier": 1,
+      "kind": "runner_case",
+      "case_id": "python/examples/parallel-wvgs-force.py",
+      "topologies": ["cpu", "gpu1"],
+      "evidence": ["analytic_or_embedded_oracle", "observable_equivalence", "specialized_counter", "strict_cuda_no_fallback"],
+      "features": ["monitor.dft_reduction"]
+    },
+    {
+      "id": "case:differential-cross-section",
+      "tier": 1,
+      "kind": "runner_case",
+      "case_id": "python/examples/differential_cross_section.py",
+      "topologies": ["cpu", "gpu1"],
+      "evidence": ["analytic_or_embedded_oracle", "observable_equivalence", "specialized_counter", "strict_cuda_no_fallback"],
+      "features": ["monitor.n2f_3d"]
+    },
+
+    {
+      "id": "case:binary-grating-oblique",
+      "tier": 2,
+      "kind": "runner_case",
+      "case_id": "python/examples/binary_grating_oblique.py",
+      "topologies": ["cpu", "gpu1"],
+      "evidence": ["analytic_or_embedded_oracle", "observable_equivalence", "strict_cuda_no_fallback"],
+      "features": ["solver.complex_bloch", "solver.symmetry"]
+    },
+    {
+      "id": "case:absorber-1d",
+      "tier": 2,
+      "kind": "runner_case",
+      "case_id": "python/examples/absorber-1d.py",
+      "topologies": ["cpu", "gpu1"],
+      "evidence": ["analytic_or_embedded_oracle", "observable_equivalence", "strict_cuda_no_fallback"],
+      "features": ["solver.pml_conductivity", "solver.absorber"]
+    },
+    {
+      "id": "case:antenna-pec-1d",
+      "tier": 2,
+      "kind": "runner_case",
+      "case_id": "python/examples/antenna_pec_ground_plane_1D.py",
+      "topologies": ["cpu", "auto", "gpu1"],
+      "evidence": ["analytic_or_embedded_oracle", "auto_policy", "observable_equivalence", "strict_cuda_no_fallback"],
+      "features": ["solver.dimensions", "solver.pec", "policy.auto_small"]
+    },
+    {
+      "id": "case:cherenkov-radiation",
+      "tier": 2,
+      "kind": "runner_case",
+      "case_id": "python/examples/cherenkov-radiation.py",
+      "topologies": ["cpu", "auto", "gpu1"],
+      "evidence": ["analytic_or_embedded_oracle", "auto_policy", "observable_equivalence", "strict_cuda_no_fallback"],
+      "features": ["solver.custom_sources", "policy.long_horizon_small"]
+    },
+    {
+      "id": "case:stochastic-emitter-line",
+      "tier": 2,
+      "kind": "runner_case",
+      "case_id": "python/examples/stochastic_emitter_line.py",
+      "topologies": ["cpu", "auto", "gpu1"],
+      "evidence": ["analytic_or_embedded_oracle", "auto_policy", "observable_equivalence", "strict_cuda_no_fallback"],
+      "features": ["solver.stochastic_sources", "policy.long_horizon_small"]
+    },
+    {
+      "id": "case:multilevel-atom",
+      "tier": 2,
+      "kind": "runner_case",
+      "case_id": "python/examples/multilevel-atom.py",
+      "topologies": ["cpu", "gpu1"],
+      "evidence": ["observable_equivalence", "specialized_counter", "strict_cuda_no_fallback"],
+      "features": ["solver.gain_multilevel"]
+    },
+    {
+      "id": "case:polarization-grating",
+      "tier": 2,
+      "kind": "runner_case",
+      "case_id": "python/examples/polarization_grating.py",
+      "topologies": ["cpu", "gpu1"],
+      "evidence": ["analytic_or_embedded_oracle", "observable_equivalence", "strict_cuda_no_fallback"],
+      "features": ["solver.anisotropy"]
+    },
+    {
+      "id": "case:faraday-rotation",
+      "tier": 2,
+      "kind": "runner_case",
+      "case_id": "python/examples/faraday-rotation.py",
+      "topologies": ["cpu", "gpu1"],
+      "evidence": ["observable_equivalence", "strict_cuda_no_fallback"],
+      "features": ["solver.gyrotropy"]
+    },
+    {
+      "id": "case:phase-in-material",
+      "tier": 2,
+      "kind": "runner_case",
+      "case_id": "python/examples/phase_in_material.py",
+      "topologies": ["cpu", "gpu1"],
+      "evidence": ["observable_equivalence", "strict_cuda_no_fallback"],
+      "features": ["solver.dynamic_material"]
+    },
+    {
+      "id": "case:material-dispersion",
+      "tier": 2,
+      "kind": "runner_case",
+      "case_id": "python/examples/material-dispersion.py",
+      "topologies": ["cpu", "gpu1"],
+      "evidence": ["analytic_or_embedded_oracle", "observable_equivalence", "specialized_counter", "strict_cuda_no_fallback"],
+      "features": ["solver.pml_conductivity", "solver.dispersion", "solver.dynamic_stop_harminv"]
+    },
+    {
+      "id": "case:solve-cw",
+      "tier": 2,
+      "kind": "runner_case",
+      "case_id": "python/examples/solve-cw.py",
+      "topologies": ["cpu", "gpu1"],
+      "evidence": ["analytic_or_embedded_oracle", "observable_equivalence", "strict_cuda_no_fallback"],
+      "features": ["solver.cw"]
+    },
+    {
+      "id": "case:finite-grating",
+      "tier": 2,
+      "kind": "runner_case",
+      "case_id": "python/examples/finite_grating.py",
+      "topologies": ["cpu", "gpu1"],
+      "evidence": ["observable_equivalence", "specialized_counter", "strict_cuda_no_fallback"],
+      "features": ["monitor.dft_accumulation", "monitor.dft_materialization"]
+    },
+    {
+      "id": "case:refl-quartz",
+      "tier": 2,
+      "kind": "runner_case",
+      "case_id": "python/examples/refl-quartz.py",
+      "topologies": ["cpu", "gpu1"],
+      "evidence": ["analytic_or_embedded_oracle", "observable_equivalence", "strict_cuda_no_fallback"],
+      "features": ["monitor.dft_checkpoint"]
+    },
+    {
+      "id": "case:mode-decomposition",
+      "tier": 2,
+      "kind": "runner_case",
+      "case_id": "python/examples/mode-decomposition.py",
+      "topologies": ["cpu", "gpu1"],
+      "evidence": ["analytic_or_embedded_oracle", "observable_equivalence", "strict_cuda_no_fallback"],
+      "features": ["monitor.eigenmode_overlap"]
+    },
+    {
+      "id": "case:cyl-off-axis",
+      "tier": 2,
+      "kind": "mpi_case",
+      "case_id": "python/examples/dipole_in_vacuum_cyl_off_axis.py",
+      "topologies": ["cpu", "gpu1", "gpu2"],
+      "evidence": ["direct_gpu2_comparison", "observable_equivalence", "specialized_counter", "strict_cuda_no_fallback"],
+      "features": ["solver.dimensions", "monitor.n2f_cyl", "monitor.cyl_to_cartesian", "distributed.multi_gpu_correctness"]
+    },
+    {
+      "id": "case:zone-plate",
+      "tier": 2,
+      "kind": "mpi_case",
+      "case_id": "python/examples/zone_plate.py",
+      "topologies": ["cpu", "gpu1", "gpu2"],
+      "evidence": ["direct_gpu2_comparison", "observable_equivalence", "specialized_counter", "strict_cuda_no_fallback"],
+      "features": ["monitor.n2f_cyl", "monitor.cyl_to_cartesian"]
+    },
+    {
+      "id": "specialized:mpi-python",
+      "tier": 2,
+      "kind": "specialized",
+      "driver": "scripts/run-mpi-python-validation.py",
+      "target": "scripts/mpi-python-validation-probe.py",
+      "topologies": ["gpu1", "gpu2"],
+      "evidence": ["capability_probe", "device_uuid_binding", "direct_gpu2_comparison", "multi_rank_work", "pinned_transport_counters", "strict_cuda_no_fallback"],
+      "features": ["distributed.pinned_mpi", "distributed.cuda_aware_mpi", "distributed.multi_rank"]
+    },
+    {
+      "id": "case:adjoint-cyl",
+      "tier": 2,
+      "kind": "mpi_case",
+      "case_id": "python/tests/test_adjoint_cyl.py",
+      "topologies": ["cpu", "gpu1", "gpu2"],
+      "evidence": ["direct_gpu2_comparison", "directional_derivative", "observable_equivalence", "specialized_counter", "strict_cuda_no_fallback"],
+      "features": ["monitor.adjoint_cyl"]
+    },
+
+    {
+      "id": "case:mode-converter",
+      "tier": 3,
+      "kind": "runner_case",
+      "case_id": "python/examples/adjoint_optimization/mode_converter.py",
+      "topologies": ["cpu", "gpu1"],
+      "evidence": ["directional_derivative", "observable_equivalence", "strict_cuda_no_fallback"],
+      "features": ["monitor.adjoint_cartesian"]
+    },
+    {
+      "id": "case:connectivity-validation",
+      "tier": 3,
+      "kind": "runner_case",
+      "case_id": "python/examples/adjoint_optimization/connectivity_validation.py",
+      "topologies": ["cpu", "gpu1"],
+      "evidence": ["directional_derivative", "observable_equivalence", "specialized_counter", "strict_cuda_no_fallback"],
+      "features": ["monitor.adjoint_cartesian"]
+    },
+    {
+      "id": "case:near2far-epigraph",
+      "tier": 3,
+      "kind": "runner_case",
+      "case_id": "python/examples/adjoint_optimization/near2far_epigraph_validation.py",
+      "topologies": ["cpu", "gpu1"],
+      "evidence": ["directional_derivative", "observable_equivalence", "specialized_counter", "strict_cuda_no_fallback"],
+      "features": ["monitor.n2f_adjoint", "monitor.adjoint_cartesian"]
+    },
+    {
+      "id": "case:multilayer-opt",
+      "tier": 3,
+      "kind": "runner_case",
+      "case_id": "python/examples/adjoint_optimization/multilayer_opt.py",
+      "topologies": ["cpu", "gpu1"],
+      "evidence": ["directional_derivative", "observable_equivalence", "strict_cuda_no_fallback"],
+      "features": ["solver.material_grid", "monitor.adjoint_cartesian"]
+    },
+    {
+      "id": "case:waveguide-crossing",
+      "tier": 3,
+      "kind": "runner_case",
+      "case_id": "python/examples/waveguide_crossing.py",
+      "topologies": ["cpu", "gpu1"],
+      "evidence": ["directional_derivative", "observable_equivalence", "strict_cuda_no_fallback"],
+      "features": ["solver.material_grid", "monitor.adjoint_cartesian"]
+    },
+
+    {
+      "id": "anchor:m3-aunp-tm",
+      "tier": 0,
+      "kind": "sealed_anchor",
+      "terminal_relative_path": "current-scope-aunp-tm-adc67c3",
+      "source_commit": "adc67c3466774bbdb1875d996e4e0e50aeb7a845",
+      "source_snapshot_sha256": "4c157af9af9fe3c2b785220936fd121bb1517763a9fbf3d9533d1fbb875eefe8",
+      "build_receipt_id": "f59db76dc7a9494f12e42bc84914dea73b9f1dcff1c458b7cb40725888128cb0",
+      "complete_sha256": "7d3d522c4dbcce60e9c264acfa925c5f0ac0de18ff0540e8e9368835e45a4d2f",
+      "report_sha256": "50d2d8539000c76fb554318e2aa641577342e0f069ea5078d6f5ce596c5c36dc",
+      "audit_relative_path": "audits/aunp-adc67c3-final-adversarial-review.md",
+      "audit_sha256": "4b8a257b2bcf9349f2bb9ccdd0dec172bb2d7542d078082a637394a479d75639",
+      "topologies": ["cpu8", "gpu1", "gpu2"],
+      "evidence": ["analytic_or_embedded_oracle", "auto_policy", "device_uuid_binding", "direct_gpu2_comparison", "multi_rank_work", "observable_equivalence", "performance_repeats", "pinned_transport_counters", "resume_replay", "specialized_counter", "strict_cuda_no_fallback"],
+      "features": ["solver.standard_sources", "solver.dispersion", "monitor.dft_accumulation", "distributed.device_ownership", "distributed.multi_gpu_correctness", "distributed.strong_scaling", "evidence.resume_durability"]
+    }
+  ]
+}

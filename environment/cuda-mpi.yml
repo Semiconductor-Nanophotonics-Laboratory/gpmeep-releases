@@ -1,0 +1,58 @@
+channels:
+  - conda-forge
+dependencies:
+  # Keep the MPI/CUDA toolchain isolated from both the CPU reference and the
+  # single-GPU CUDA development prefix.
+  - python=3.11
+  - c-compiler=1.7
+  - cxx-compiler=1.7
+  - fortran-compiler=1.7
+  - cuda-version=12.4
+  - cuda-nvcc=12.4
+  - cuda-cudart-dev=12.4
+  - mpi=1.0=openmpi
+  - openmpi
+
+  # Build system
+  - autoconf
+  - autoconf-archive
+  - automake
+  - libtool
+  - make
+  - pkg-config
+  - swig
+  - ccache
+  - cmake
+  - ninja
+
+  # Native Meep dependencies. Pin the libraries that participate in
+  # collective I/O/transforms to Open MPI builds: an unconstrained solve can
+  # otherwise select nompi HDF5 even though Meep itself is MPI-enabled, which
+  # deadlocks single-file checkpoints with more than one rank.
+  - fftw=*=mpi_openmpi_*
+  - gsl
+  - hdf5=*=mpi_openmpi_*
+  - zlib
+  - libblas
+  - liblapack
+  - libctl=4.7.1
+  - harminv=1.4.3
+  - mpb=1.12
+
+  # Python interface and focused validation tests
+  - numpy<3
+  - scipy
+  - h5py=*=mpi_openmpi_*
+  - mpi4py
+  - autograd
+  # JAX is used for adjoint custom-VJP validation and host-side design
+  # transformations.  Keep the default conda-forge CPU jaxlib build so the
+  # Meep CUDA backend exclusively owns the selected FDTD GPU.
+  - jax
+  - jaxlib
+  - matplotlib-base
+  - parameterized
+  - pytest
+  - nlopt
+  - trimesh
+  - gdstk=1.0.1

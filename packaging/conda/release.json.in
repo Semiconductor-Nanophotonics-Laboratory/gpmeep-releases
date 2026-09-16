@@ -1,0 +1,34 @@
+{
+  "schema_version": 3,
+  "distribution": "gpmeep",
+  "distribution_version": "1.0.3",
+  "upstream_source_version": "1.35.0-beta",
+  "source_commit": "@SOURCE_COMMIT@",
+  "python_import": "meep",
+  "precision": "fp32",
+  "cuda_fast_math": false,
+  "cuda_toolkit": "12.4",
+  "cuda_architectures": "@CUDA_ARCHITECTURES@",
+  "cuda_real_architectures": [@CUDA_REAL_ARCHITECTURES@],
+  "cuda_virtual_architectures": [@CUDA_VIRTUAL_ARCHITECTURES@],
+  "runtime_validated_architectures": [@RUNTIME_VALIDATED_ARCHITECTURES@],
+  "cuda_architecture_audit_sha256": "@CUDA_ARCHITECTURE_AUDIT_SHA256@",
+  "glibc_minimum": "2.17",
+  "glibc_compatibility_audit_sha256": "@GLIBC_AUDIT_SHA256@",
+  "mpi": "openmpi",
+  "scheme": false,
+  "package_policy": "dedicated-environment-only",
+  "performance_anchor": {
+    "schema": "gpmeep-sealed-m3-anchor-v1",
+    "qualification_eligible": true,
+    "source_commit": "adc67c3466774bbdb1875d996e4e0e50aeb7a845",
+    "report_sha256": "50d2d8539000c76fb554318e2aa641577342e0f069ea5078d6f5ce596c5c36dc",
+    "complete_sha256": "7d3d522c4dbcce60e9c264acfa925c5f0ac0de18ff0540e8e9368835e45a4d2f",
+    "audit_sha256": "4b8a257b2bcf9349f2bb9ccdd0dec172bb2d7542d078082a637394a479d75639",
+    "means_seconds": {
+      "cpu8": {"fdtd": 163.82354227802716, "end_to_end": 178.19756312202662},
+      "gpu1": {"fdtd": 16.680280592525378, "end_to_end": 41.04173981299391},
+      "gpu2": {"fdtd": 10.951151260989718, "end_to_end": 30.025476827519014}
+    }
+  }
+}
