@@ -11,6 +11,32 @@ Install gpmeep in its own environment. Installing official `pymeep` into the
 same prefix is unsupported because both distributions provide the `meep`
 module and native `libmeep` ABI.
 
+## Public download availability
+
+This repository currently publishes v1.0.3 source and its tag, not a prebuilt
+Conda asset. Existing binary recipe metadata is awaiting a privacy review.
+`PUBLIC_RELEASE.json` records the accepted original binary's identity, not a
+download promise. The binary installation examples below apply only if you
+already have that exact package and its matching checksum sidecar.
+
+## Building from the public source
+
+On a supported Linux x86-64 build host, use a clean committed clone and a new
+output directory. The script creates an isolated Micromamba package-builder
+environment from the included lock; no system Meep environment is modified.
+
+```sh
+/bin/bash -p scripts/build-conda-package.sh \
+  --jobs 4 --output-dir /absolute/new/path/gpmeep-build
+```
+
+The output package and `.sha256` sidecar are under that directory's
+`linux-64/` subdirectory. For a local build, pass `git rev-parse HEAD` as
+`--expected-source-commit` to the installer, not the original binary commit
+used in the examples below. A local build must still pass the installed
+provenance and CPU/CUDA self-checks; it is not the original checksum-pinned
+release binary.
+
 ## Requirements
 
 - Linux x86-64

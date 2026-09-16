@@ -12,10 +12,17 @@ import meep as mp
 **Project keywords:** `GPU-accelerated FDTD`, `GPU FDTD`, `CUDA FDTD`,
 `Meep GPU`.
 
-Validated source snapshots, packages, checksums, release notes, and installation
-instructions are published in this repository. Active development and
+Accepted source snapshots, release notes, package identity/checksum records,
+and installation instructions are published in this repository. Active development and
 candidate qualification occur separately so the public release history
 contains accepted versions rather than unfinished development branches.
+
+**Current download status:** v1.0.3 source and its Git tag are available.
+Prebuilt Conda binaries are not yet attached here: inherited package recipe
+metadata requires a separate privacy review before upload. The checksum record
+identifies the existing accepted binary; it does not mean that binary is
+currently downloadable from this public repository. Source build scripts are
+included; see the [installation guide](doc/docs/GPMEEP_INSTALLATION.md#building-from-the-public-source).
 
 Raw validation logs and private execution metadata are not published. See
 [the public release policy](PUBLIC_RELEASE_POLICY.md) and

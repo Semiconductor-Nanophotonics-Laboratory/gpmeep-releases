@@ -31,6 +31,10 @@ is not rebuilt or relabelled merely to change publication documentation.
 The README installer example passes that original commit explicitly so a
 different public snapshot commit does not weaken provenance verification.
 
+The initial public publication is source-only. No inherited binary is uploaded
+until its package metadata and payload pass the same privacy gate; a checksum
+record alone does not imply an available release asset.
+
 Before each publication, scan every public Git ref and release asset for
 private metadata and verify that retained solver/build source matches the
 accepted private source. Never import old private refs or raw logs into this
